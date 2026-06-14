@@ -8,6 +8,13 @@ from flask import request, jsonify
 
 app = Flask(__name__)
 
+@app.route("/", methods=["GET"])
+def health():
+    return jsonify({
+        "status": "success",
+        "message": "ML Service Running"
+    }), 200
+
 @app.route("/predict", methods=["POST"])
 def hello_world():
   try:
